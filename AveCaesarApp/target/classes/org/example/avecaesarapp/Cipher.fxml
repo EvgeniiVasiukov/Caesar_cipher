@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.avecaesarapp.CipherController">
+  <tabs>
+    <Tab text="Encrypt">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="361.0" prefWidth="848.0">
+               <children>
+
+                   <RadioButton fx:id="readFromFileRadioButton" layoutX="22.0" layoutY="259.0" mnemonicParsing="false" text="Read from file" toggleGroup="$inputToggleGroup" />
+
+                   <RadioButton fx:id="readFromConsoleRadioButton" layoutX="22.0" layoutY="228.0" mnemonicParsing="false" text="Read from console" toggleGroup="$inputToggleGroup" selected="true"/>
+                  <TextField fx:id="filePathTextField1" layoutX="22.0" layoutY="289.0" promptText="File Path"  />
+                  <Button fx:id="chooseFileButton2" layoutX="220.0" layoutY="320.0" text="Chose file" onAction="#chooseFile" />
+                  <Label layoutX="47.0" layoutY="14.0" prefHeight="21.0" prefWidth="73.0" text="Input" />
+                  <Label layoutX="406.0" layoutY="14.0" text="Output" />
+                  <TextArea fx:id="inputTextArea" layoutX="20.0" layoutY="44.0" prefHeight="170.0" prefWidth="261.0" />
+                  <TextArea fx:id="outputTextArea" layoutX="336.0" layoutY="42.0" prefHeight="174.0" prefWidth="255.0" editable="false"/>
+                  <Separator layoutX="307.0" layoutY="29.0" orientation="VERTICAL" prefHeight="200.0" />
+                  <Button fx:id="startEncryptButton" layoutX="445.0" layoutY="289.0" mnemonicParsing="false" text="Start!"  onAction="#startEncryptButtonActionTab1" />
+                  <ImageView fitHeight="119.0" fitWidth="186.0" layoutX="501.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@caesar.png" />
+                     </image>
+                  </ImageView>
+                   <TextField fx:id="keyTextField" layoutX="220.0" layoutY="234.0" promptText="Set the key..." />
+                   <TextField fx:id="filePathTextField2" layoutX="22.0" layoutY="320.0" promptText="OutputFile Path" />
+                  <Button fx:id="chooseFileButton1" layoutX="220.0" layoutY="289.0" text="Chose file" onAction="#chooseFile"/>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Decrypt">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                   <RadioButton fx:id="readFromConsoleDecryptRadioButton" layoutX="60.0" layoutY="268.0" mnemonicParsing="false" text="Read from console" toggleGroup="$decryptToggleGroup" selected="true" />
+                   <RadioButton fx:id="readFromFileDecryptRadioButton" layoutX="60.0" layoutY="299.0" mnemonicParsing="false" toggleGroup="$decryptToggleGroup" text="Read from file"  />
+                   <TextField fx:id="decryptFilePathTextField" layoutX="60.0" layoutY="330.0" promptText="File Path" />
+                   <Button fx:id="chooseFileDecryptButton" layoutX="220.0" layoutY="330.0" text="Choose file to decrypt" onAction="#chooseFile" />
+                   <TextField fx:id="decryptFileDestPathTextField" layoutX="60.0" layoutY="370.0" promptText="Destination File Path" />
+                   <Button fx:id="chooseFileDestDecryptButton" layoutX="220.0" layoutY="370.0" text="Choose destination file" onAction="#chooseFile" />
+                   <TextArea fx:id="inputDecryptTextArea" layoutX="20.0" layoutY="22.0" prefHeight="200.0" prefWidth="200.0" />
+                   <TextArea fx:id="outputDecryptTextArea" layoutX="348.0" layoutY="22.0" prefHeight="200.0" prefWidth="200.0" editable="false" />
+                   <TextField fx:id="keyTextField2" layoutX="220.0" layoutY="234.0" promptText="Set the key..." />
+                   <Button fx:id="startDecryptButton" layoutX="445.0" layoutY="289.0" mnemonicParsing="false" text="Start!" onAction="#startEncryptButtonActionTab2"/>
+                   <ImageView fitHeight="106.0" fitWidth="155.0" layoutX="230.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+
+                       <image>
+                           <Image url="@caesar2.png" />
+                       </image>
+                   </ImageView>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Brute force">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                   <Label layoutX="60.0" layoutY="299.0" mnemonicParsing="false" text="Read from file" />
+                   <TextField fx:id="encryptedFilePathBrute" layoutX="60.0" layoutY="330.0" promptText="File Path" />
+                   <Button fx:id="chooseFileDecryptBruteButton" layoutX="220.0" layoutY="330.0" text="Choose file to decrypt by Brute force" onAction="#chooseFile"/>
+                  <TextField fx:id="keySolutionTextfield" layoutX="399.0" layoutY="263.0" prefHeight="31.0" prefWidth="47.0" editable="false" />
+                  <Button fx:id="startBruteDecrypButton" layoutX="272.0" layoutY="305.0" mnemonicParsing="false" text="Start!" onAction="#startBruteForceDecryption" />
+                   <TextArea fx:id="getOutputBruteTextArea" layoutX="20.0" layoutY="22.0" prefHeight="200.0" prefWidth="400.0" editable="false" />
+                   <ImageView fitHeight="200.0" fitWidth="155.0" layoutX="430.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                           <Image url="@caesar_and_brutus_by_neroursus_dey7r6s-fullview.png" />
+                       </image>
+                   </ImageView>
+                  <Label layoutX="300.0" layoutY="268.0" prefHeight="21.0" prefWidth="103.0" text="Best key is:" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
